@@ -1,3 +1,5 @@
+* CREATION OF A SINGLY LINKED LIST IN LIFO(STACK) MANNER*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
