@@ -1,10 +1,11 @@
 /* CREATION OF A SINGLY LINKED LIST IN FIFO(QUEUE) MANNER*/
 
 #include<stdio.h>
+#include<stdlib.h>
  
  struct stu *new(int);
  void addnode_FIFO();
- void travers();
+ void traverse();
 
   struct stu
   {
@@ -13,7 +14,8 @@
  }*p,*temp,*head=NULL;
 
 
-void main(){
+void main()
+{
      int a,ch=1;
     
     while(ch!=0)
@@ -27,12 +29,15 @@ void main(){
       printf("press 1 for continue and 0 for end:");
       scanf("%d",&ch);
     }
-
+    
+    printf("The list is as follow");
+    traverse(head);
+}
     struct stu *new(int a)
     {
         p=((struct stu*)malloc(sizeof(struct stu)));
         p->info=a;
-        p->next=null;
+        p->next=NULL;
         return p;
     }
 
@@ -59,7 +64,6 @@ void main(){
         while(temp!=NULL)
         {
           printf("\n%d",temp->info);
-          temp=temp->mext;
+          temp=temp->next;
         }
     }
-}
