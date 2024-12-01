@@ -1,26 +1,27 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 
 struct stu *new(int);
 void addnode_FIFO();
-void addbefore();
+void addbefore(int);
 void traverse();
 
 struct stu
 {
     int info;
     struct stu *next;
-}*p,*temp,*head=NULL;
+}*p,*r,*temp,*head=NULL;
 
 void main()
 {
     int a,ch=1,item;
-
-     printf("enter a number=");
-     scanf("%d",&a);
-
-     while(ch!=0)
+    
+    while(ch!=0)
      {
+       printf("enter a number=");
+       scanf("%d",&a);
+
         p=new(a);
         addnode_FIFO(p);
 
@@ -32,7 +33,7 @@ void main()
      printf("the list is as follow");
      traverse(head);
 
-     printf("enter a new node which you want to insert");
+     printf("\nenter a new node which you want to insert=");
      scanf("%d",&a);
 
      p=new(a);
@@ -47,7 +48,7 @@ void main()
 
      }
 
-     struct stu *new(int a);
+     struct stu *new(int a)
      {
         p=((struct stu*)malloc(sizeof(struct stu)));
         p->info=a;
@@ -82,5 +83,26 @@ void main()
         }
      }
 
-
-     
+void addbefore(int item)
+{
+    
+ temp=head;
+ if(temp->info==item)
+ {
+    p->next=temp;
+    head=p;
+ }
+ else
+ {
+ while(temp!=NULL)
+ {
+ if(temp->info==item)
+ {
+     r->next=p;
+     p->next=temp;
+ }
+ r=temp;
+ temp=temp->next;
+}
+}
+}     
